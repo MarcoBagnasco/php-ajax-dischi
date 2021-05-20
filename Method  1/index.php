@@ -15,8 +15,16 @@ include __DIR__ . '/partials/database.php';
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <main>
-        <div class="wrapper">
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <img src="./img/logo.png" alt="logo">
+        </div>
+    </header>
+
+    <!-- SITE MAIN -->
+    <main class="site-main">
+        <div class="container">
             <?php foreach($database as $data) { ?>
             <div class="card">
                 <img src="<?php echo $data['poster']; ?>" alt="">
