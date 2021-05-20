@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Dischi 2</title>
+
+    <!-- VUE -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <!-- STYLE -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div id="root">
+        <!-- SITE HEADER -->
+        <header class="site-header">
+            <div class="container">
+                <img src="./img/logo.png" alt="logo">
+            </div>
+        </header>
+
+        <!-- SITE MAIN -->
+        <main class="site-main">
+            <div class="container">
+                <!-- Card -->
+                <div v-for="disk in diskList" class="card">
+                    <img :src="disk.poster" alt="">
+                    <h2>{{ disk.title }}</h2>
+                    <h4>{{ disk.author }}</h4>
+                    <h2>{{ disk.year }}</h2>
+                    <h4>{{ disk.genre }}</h4>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Main Script -->
+    <script src="./js/script.js"></script>
+</body>
+</html>

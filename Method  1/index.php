@@ -9,7 +9,7 @@ include __DIR__ . '/partials/database.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Dischi</title>
+    <title>PHP Dischi 1</title>
 
     <!-- STYLE -->
     <link rel="stylesheet" href="./css/style.css">
@@ -26,6 +26,7 @@ include __DIR__ . '/partials/database.php';
     <main class="site-main">
         <div class="container">
             <?php foreach($database as $data) { ?>
+            <!-- Card -->
             <div class="card">
                 <img src="<?php echo $data['poster']; ?>" alt="">
                 <h2><?php echo $data['title']; ?></h2>
