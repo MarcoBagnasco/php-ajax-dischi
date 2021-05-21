@@ -1,5 +1,5 @@
-<!-- CREATE JSON -->
 <?php 
+// CREATE JSON
 // Include Disk Database
 include __DIR__ . '/../partials/database.php';
 

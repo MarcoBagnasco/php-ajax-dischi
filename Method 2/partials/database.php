@@ -1,5 +1,5 @@
-<!-- DISK DATABASE -->
 <?php
+//DISK DATABASE
 
     $database = [
         [

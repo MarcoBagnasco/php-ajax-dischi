@@ -16,8 +16,8 @@ const app = new Vue({
          * Call API Disk
          */
         callDisk(){
-            const dataURL = 'http://localhost/Exercise_php/Esercizio_48/php-ajax-dischi/Method%202/scripts/get-disk.php';
-
+            const dataURL = `${window.location.href}scripts/get-disk.php`;
+            
             axios.get(dataURL)
             .then(res => {
                 this.diskList = res.data;
