@@ -8,6 +8,8 @@
 
     <!-- VUE -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- FONTAWSOME -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' integrity='sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==' crossorigin='anonymous'/>
 
     <!-- STYLE -->
     <link rel="stylesheet" href="./css/style.css">
@@ -18,9 +20,20 @@
         <header class="site-header">
             <div class="container">
                 <img src="./img/logo.png" alt="logo">
+                <!-- Select Genre -->
+                <select v-model="selectedGenre" name="genre" id="genre" @change="callDisk">
+                    <option value="all">All</option>
+                    <option value="rock">Rock</option>
+                    <option value="jazz">Jazz</option>
+                    <option value="pop">Pop</option>
+                    <option value="metal">Metal</option>
+                </select>
+                <!-- Search Author -->
+                <div class="search-author">
+                    <input v-model.trim="searchString" type="text" name="search" id="search" placeholder="Search Author" @keyup="callDisk">
+                    <i class="fas fa-times" @click="clearAuthor"></i>
+                </div>
             </div>
-            <!-- Search Bar -->
-            <input v-model.trim="searchString" type="text" name="search" id="search" placeholder="Search Author" @keyup="searchAuthor">
         </header>
 
         <!-- SITE MAIN -->

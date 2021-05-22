@@ -24,8 +24,33 @@ body{
     padding: 15px;
     background-color: #132431;
 }
+.site-header .container{
+    justify-content: space-between;
+    align-items: center;
+}
 .site-header img{
     width: 40px;
+}
+/* Search */
+.search-author{
+    position: relative;
+}
+.search-author input{
+    height: 30px;
+    padding: 0 5px;
+    font-weight: bold;
+    outline: none;
+}
+.search-author input:focus{
+    background-color: rgba(0, 255, 89, 0.63);
+}
+.search-author i{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #555;
+    cursor: pointer;
 }
 
 /* SITE MAIN */
