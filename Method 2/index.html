@@ -18,35 +18,54 @@
     <div id="root">
         <!-- SITE HEADER -->
         <header class="site-header">
-            <div class="container">
+            <div class="container flex ai-center jc-between">
                 <img src="./img/logo.png" alt="logo">
 
-                <!-- Select Genre -->
-                <select v-model="selectedGenre" name="genre" id="genre" @change="callDisk">
-                    <option value="all">All</option>
-                    <option value="rock">Rock</option>
-                    <option value="jazz">Jazz</option>
-                    <option value="pop">Pop</option>
-                    <option value="metal">Metal</option>
-                </select>
+                <!-- FILTERS -->
+                <div class="filters flex ai-center jc-between">
+                    <!-- SELECT GENRE -->
+                    <div class="select-wrap">
+                        <h2 for="genre">GENRES</h2>
+                        <select class="input-field" v-model="selectedGenre" name="genre" id="genre" @change="callDisk">
+                            <option value="all">All</option>
+                            <option value="rock">Rock</option>
+                            <option value="jazz">Jazz</option>
+                            <option value="pop">Pop</option>
+                            <option value="metal">Metal</option>
+                        </select>
+                    </div>
 
-                <!-- Search Author -->
-                <div class="search-bar">
-                    <input v-model.trim="searchAuthor" type="text" name="search-aut" id="search-aut" placeholder="Search Author" @keyup="callDisk">
-                    <i class="fas fa-times" @click="clearSearch('author')"></i>
-                </div>
-                
-                <!-- Search Title -->
-                <div class="search-bar">
-                    <input v-model.trim="searchTitle" type="text" name="search-tit" id="search-tit" placeholder="Search Title" @keyup="callDisk">
-                    <i class="fas fa-times" @click="clearSearch('title')"></i>
+                    <!-- SEARCH -->
+                    <div class="search-wrap flex">
+                        <!-- Open/Close -->
+                        <div class="open-close flex ai-center jc-center" @click="showSearch">
+                            <i v-if="!isActive" class="fas fa-chevron-left" :class="{mark : (searchAuthor !== '' || searchTitle !== '')}"></i>
+                            <i v-else class="fas fa-chevron-right"></i>
+                        </div>
+                        <!-- Searches Box -->
+                        <div class="searches" :class="{active : isActive}">
+                            <!-- Search Author -->
+                            <div class="search-bar">
+                                <input class="input-field" v-model.trim="searchAuthor" type="text" name="search-aut" id="search-aut" placeholder="Search Author" @keyup="callDisk">
+                                <!-- Clear Button -->
+                                <i class="fas fa-times" @click="clearSearch('author')"></i>
+                            </div>
+                    
+                            <!-- Search Title -->
+                            <div class="search-bar">
+                                <input class="input-field" v-model.trim="searchTitle" type="text" name="search-tit" id="search-tit" placeholder="Search Title" @keyup="callDisk">
+                                <!-- Clear Button -->
+                                <i class="fas fa-times" @click="clearSearch('title')"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
 
         <!-- SITE MAIN -->
         <main class="site-main">
-            <div class="container">
+            <div class="container flex">
                 <!-- Card -->
                 <div v-for="disk in diskList" class="card">
                     <img :src="disk.poster" alt="">

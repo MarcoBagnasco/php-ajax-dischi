@@ -1,4 +1,4 @@
-/* GENERAL */
+/********** GENERAL **********/
 *{
     margin: 0;
     padding: 0;
@@ -10,69 +10,137 @@ body{
     color: #fff;
     background-color: #182d3d;
 }
-
-/* UTILITIES */
+/********** UTILITIES **********/
 .container{
-    width: 900px;
+    max-width: 900px;
     margin: 0 auto;
-    display: flex;
     flex-wrap: wrap;
 }
+/* Flex */
+.flex{
+    display: flex;
+}
+.ai-center{
+    align-items: center;
+}
+.jc-center{
+    justify-content: center;
+}
+.jc-between{
+    justify-content: space-between;
+}
 
-/* SITE HEADER */
+/* Input */
+.input-field{
+    width: 200px;
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    outline: none; 
+}
+
+/********** SITE HEADER **********/
 .site-header{
     padding: 15px;
     background-color: #132431;
 }
-.site-header .container{
-    justify-content: space-between;
-    align-items: center;
-}
 .site-header img{
     width: 40px;
 }
-/* Search */
-.search-bar{
+
+/* FILTERS */
+.filters{
+    width: 61%;
+}
+
+/* SELECT GENRE */
+.select-wrap h2{
+    margin-bottom: 10px;
+    text-align: center;
+}
+.select-wrap select{
+    color: #fff;
+    background-color: #182d3d;
+    border: 0;
+}
+
+/* SEARCH*/
+/* Open/Close */
+.search-wrap .open-close{
+    width: 25px;
+    font-size: 20px;
+    background-color: #182d3d;
+}
+.mark{
+    animation: flash .5s linear infinite;
+}
+@keyframes flash{
+    from, 50%{
+        color: #1ed760;
+    }
+    51%, to{
+        color: #fff;
+    }
+}
+
+/* Searches Box */
+.search-wrap .searches{
+    width: 0;
+    color: #aaa;
+    transition: width .5s,
+    color .3s;
+}
+.search-wrap .searches.active{
+    width: 200px;
+    color: #555;
+}
+
+/* Search Bar*/
+.searches .search-bar{
     position: relative;
+    overflow: hidden;
 }
-.search-bar input{
-    height: 30px;
-    padding: 0 5px;
-    font-weight: bold;
-    outline: none;
+.searches .search-bar input{
+    background-color: #aaa;
+    color: #fff;
 }
-.search-bar input:focus{
-    background-color: rgba(0, 255, 89, 0.63);
+.searches .search-bar input:focus{
+    background-color: #182d3d;
+
+    /* background-color: rgba(0, 255, 89, 0.63); */
 }
-.search-bar i{
+/* Clear Button */
+.searches .search-bar i{
     position: absolute;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
-    color: #555;
     cursor: pointer;
 }
 
-/* SITE MAIN */
+/********** SITE MAIN **********/
 .site-main{
-    padding: 30px;
+    padding: 25px;
 }
 .site-main .container{
     padding: 0 30px;
 }
+
 /* Card */
-.card{
+.site-main .card{
     width: calc(100% / 3 - 50px);
     margin: 25px;
     padding: 20px;
-    background-color: #000;
+    background-color: #132431;
     text-align: center;
 }
-.card img{
+.site-main .card img{
     max-width: 80%;
     margin-bottom: 20px;
 }
-.card h2,
-.card h4{
+.site-main .card h2,
+.site-main .card h4{
     margin-bottom: 10px;
 }

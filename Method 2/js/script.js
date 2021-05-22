@@ -10,6 +10,7 @@ const app = new Vue({
         selectedGenre: 'all',
         searchAuthor: '',
         searchTitle: '',
+        isActive: false,
     },
     created(){
         this.callDisk();
@@ -47,5 +48,12 @@ const app = new Vue({
             }
             this.callDisk();
         },
+
+        /**
+         * Search Toggle Visibility
+         */
+        showSearch(){
+            this.isActive = !this.isActive;
+        }
     },
 });
