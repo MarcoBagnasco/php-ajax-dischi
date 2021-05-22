@@ -11,8 +11,9 @@ foreach($database as $data){
 }
 
 // Get Query String
-$author = empty($_GET['author']) ? '' : strtolower($_GET['author']);
 $genre = empty($_GET['genre']) ? 'all' : $_GET['genre'];
+$author = empty($_GET['author']) ? '' : strtolower($_GET['author']);
+$title = empty($_GET['title']) ? '' : strtolower($_GET['title']);
 
 // Filtered Array
 $filtered = [];
@@ -35,6 +36,24 @@ if($author !== ''){
 
     foreach($filtered as $item){
         if(strpos(strtolower($item['author']), $author) !== false){
+            $temp[] = $item;
+        }
+    }
+    $filtered = $temp;
+} 
+
+$returnData = [
+    'genreList' => $genres,
+    'albums' => $filtered,
+];
+
+// Filter by Title
+if($title !== ''){
+    // Temporary Array
+    $temp = [];
+
+    foreach($filtered as $item){
+        if(strpos(strtolower($item['title']), $title) !== false){
             $temp[] = $item;
         }
     }

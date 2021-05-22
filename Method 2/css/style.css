@@ -32,19 +32,19 @@ body{
     width: 40px;
 }
 /* Search */
-.search-author{
+.search-bar{
     position: relative;
 }
-.search-author input{
+.search-bar input{
     height: 30px;
     padding: 0 5px;
     font-weight: bold;
     outline: none;
 }
-.search-author input:focus{
+.search-bar input:focus{
     background-color: rgba(0, 255, 89, 0.63);
 }
-.search-author i{
+.search-bar i{
     position: absolute;
     top: 50%;
     right: 10px;

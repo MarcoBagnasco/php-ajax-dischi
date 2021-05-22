@@ -7,8 +7,9 @@ const app = new Vue({
     el: '#root',
     data: {
         diskList: [],
-        searchString: '',
         selectedGenre: 'all',
+        searchAuthor: '',
+        searchTitle: '',
     },
     created(){
         this.callDisk();
@@ -22,8 +23,9 @@ const app = new Vue({
             
             axios.get(dataURL, {
                 params: {
-                    author: this.searchString,
                     genre: this.selectedGenre,
+                    author: this.searchAuthor,
+                    title: this.searchTitle,
                 }
             })
             .then(res => {
@@ -37,27 +39,13 @@ const app = new Vue({
         /**
          * Clear Author Search
          */
-        clearAuthor(){
-            this.searchString = '';
+        clearSearch(type){
+            if(type === 'author'){
+                this.searchAuthor = '';
+            } else if(type === 'title'){
+                this.searchTitle = '';
+            }
             this.callDisk();
         },
-        // /**
-        //  * Call API Filtered Disk
-        //  */
-        // searchAuthor(){
-        //     const dataURL = `${window.location.href}scripts/get-disk-filtered-by-author.php`;
-
-        //     axios.get(dataURL, {
-        //         params: {
-        //             author: this.searchString,
-        //         }
-        //     })
-        //     .then(res => {
-        //         this.diskList = res.data;
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //     });
-        // }
     },
 });

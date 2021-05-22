@@ -20,6 +20,7 @@
         <header class="site-header">
             <div class="container">
                 <img src="./img/logo.png" alt="logo">
+
                 <!-- Select Genre -->
                 <select v-model="selectedGenre" name="genre" id="genre" @change="callDisk">
                     <option value="all">All</option>
@@ -28,10 +29,17 @@
                     <option value="pop">Pop</option>
                     <option value="metal">Metal</option>
                 </select>
+
                 <!-- Search Author -->
-                <div class="search-author">
-                    <input v-model.trim="searchString" type="text" name="search" id="search" placeholder="Search Author" @keyup="callDisk">
-                    <i class="fas fa-times" @click="clearAuthor"></i>
+                <div class="search-bar">
+                    <input v-model.trim="searchAuthor" type="text" name="search-aut" id="search-aut" placeholder="Search Author" @keyup="callDisk">
+                    <i class="fas fa-times" @click="clearSearch('author')"></i>
+                </div>
+                
+                <!-- Search Title -->
+                <div class="search-bar">
+                    <input v-model.trim="searchTitle" type="text" name="search-tit" id="search-tit" placeholder="Search Title" @keyup="callDisk">
+                    <i class="fas fa-times" @click="clearSearch('title')"></i>
                 </div>
             </div>
         </header>
