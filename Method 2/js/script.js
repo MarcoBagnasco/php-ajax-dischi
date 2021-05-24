@@ -7,6 +7,7 @@ const app = new Vue({
     el: '#root',
     data: {
         diskList: [],
+        genreList: [],
         selectedGenre: 'all',
         searchAuthor: '',
         searchTitle: '',
@@ -31,6 +32,7 @@ const app = new Vue({
             })
             .then(res => {
                 this.diskList = res.data.albums;
+                this.genreList = res.data.genreList;
             })
             .catch(err => {
                 console.log(err);

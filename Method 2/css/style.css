@@ -64,6 +64,8 @@ body{
     color: #fff;
     background-color: #182d3d;
     border: 0;
+    text-transform: capitalize;
+
 }
 
 /* SEARCH*/
